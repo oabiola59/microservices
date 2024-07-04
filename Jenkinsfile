@@ -40,11 +40,7 @@ pipeline {
                 }
             }
         }
- stage('Deploy') {
-            steps {
-                // Add deployment steps if needed
-            }
-        }
+ 
     }
 
     // Define post-build actions if necessary
