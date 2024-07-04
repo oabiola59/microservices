@@ -22,7 +22,7 @@ pipeline {
       steps {
         script {
           // Run Docker container
-          sh "docker run -d --name ${DOCKER_IMAGE}_cont -p 8080:8080 ${DOCKER_IMAGE}"
+          sh "docker run -d --name ${DOCKER_IMAGE}_cont -p 7001:8080 ${DOCKER_IMAGE}"
         }
       }
       post {
