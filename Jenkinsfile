@@ -22,15 +22,15 @@ pipeline {
       steps {
         script {
           // Run Docker container
-          docker.image("${DOCKER_IMAGE}").run('-p 8080:8080')
+          sh "docker run -d --name test -p 8080:8080 ${DOCKER_IMAGE}"
         }
       }
       post {
         always {
           // Clean up: stop and remove Docker container
           script {
-            docker.container("${DOCKER_IMAGE}").stop()
-            docker.container("${DOCKER_IMAGE}").remove(force: true)
+            sh "docker stop test"
+            sh "docker rm test"
           }
         }
       }
