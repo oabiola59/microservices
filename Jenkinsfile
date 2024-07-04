@@ -7,7 +7,7 @@ pipeline {
     stage('Checkout') {
       steps {
         // Checkout your Git repository
-        git 'https://github.com/oabiola59/microservices.git'
+        git branch: 'main', url: 'https://github.com/oabiola59/microservices.git'
       }
     }
     stage('Build Docker Image') {
