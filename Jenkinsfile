@@ -22,14 +22,14 @@ pipeline {
       steps {
         script {
           // Run Docker container
-          sh "docker run -d --name ${DOCKER_IMAGE}_cont -p 7001:8080 ${DOCKER_IMAGE}"
+          sh "docker run -d --name ${DOCKER_IMAGE}_cont -p 10000:8080 ${DOCKER_IMAGE}"
         }
       }
       post {
         always {
           // Clean up: stop and remove Docker container
           script {
-            sleep 1800
+            sleep 300
             sh "docker stop ${DOCKER_IMAGE}_cont"
             sh "docker rm ${DOCKER_IMAGE}_cont"
           }
